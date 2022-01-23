@@ -1,0 +1,35 @@
+.user-input {
+    @apply text-xs appearance-none bg-transparent border-none w-full text-gray-700 leading-tight;
+}
+
+.user-input:focus {
+    @apply outline-offset-0 outline-slate-50;
+}
+
+.comment-input {
+    @apply appearance-none bg-transparent border-none w-full text-gray-700 leading-tight;
+}
+
+.comment-input {
+    @apply outline-2 outline-offset-0 outline-slate-50;
+}
+
+.sbmt-btn {
+    @apply text-xs p-1 bg-green-200 border-2 rounded-full;
+}
+
+.sbmt-btn:hover {
+    @apply bg-green-400;
+}
+
+.sbmt-btn:disabled {
+    @apply bg-gray-100;
+}
+
+.cncl-btn {
+    @apply mx-4 text-xs p-1 bg-indigo-200 border-2 rounded-full;
+}
+
+.cncl-btn:hover {
+    @apply bg-indigo-400;
+}

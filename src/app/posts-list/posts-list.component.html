@@ -1,0 +1,22 @@
+<section class="bg-white">
+    <article class="flex flex-col" *ngFor="let post of postsList">
+        <button data-testid="post-item-btn" (click)="postSelected($event, post)" class="bg-slate-50 rounded-md p-2 mt-4 border-2 hover:shadow-lg">
+            <div class="w-100 flex justify-between text-gray-700 hover:text-green-600 ">
+                <div class="my-2">
+                    <p class="text-gray-500 text-xs text-left">Title</p>
+                    <span class="font-semibold tracking-wide">{{ post.title }}</span>
+                </div>
+                <div class="my-2">
+                    <p class="text-gray-500 text-xs text-left">Author</p>
+                    <span class="tracking-tight font-medium ">{{ post.author }}</span>
+                </div>
+                <div class="text-gray-500 text-xs my-2">
+                    {{ post.publish_date }}
+                </div>
+            </div>
+            <div class="text-lg  pt-2  text-gray-500 font-semibold border-t-2 text-left">
+                {{ post.description }}
+            </div>
+        </button>
+    </article>
+</section>

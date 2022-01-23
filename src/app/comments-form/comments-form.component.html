@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit(theForm)" #theForm="ngForm" class="border border-stone-500 rounded-lg shadow-lg">
+    <div class="flex items-center border-b border-gray-200 px-2 py-1 text-xs">
+        <span class="text-xs">User: </span>
+        <input data-testid="username" class="user-input" autocomplete="off" type="text" placeholder="Type username..." required name="username" ngModel aria-label="Username">
+    </div>
+    <div class="p-2 border-b border-gray-200">
+        <textarea data-testid="comment" placeholder="Comment it..." id="comment" rows="3" class="comment-input" required name="comment" ngModel aria-label="Comment">
+        </textarea>
+    </div>
+    <div class="my-2 px-2 flex flex-row-reverse">
+        <button data-testid="submit-btn" type="submit" [disabled]="!theForm.valid" class="sbmt-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+         </button>
+        <button data-testid="cancel-btn" type="button" (click)="cancelComment(theForm)" class="cncl-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+         </button>
+    </div>
+</form>

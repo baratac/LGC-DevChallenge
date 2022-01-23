@@ -1,0 +1,34 @@
+<div class="flex border-stone-600 border-t p-1">
+    <div *ngIf="!addContent" class="flex-grow"></div>
+    <button *ngIf="!addContent" [disabled]="openForm" (click)="addComment()" class="add-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+        </svg>
+     </button>
+    <app-comments-form class="flex-grow" *ngIf="addContent" [theComment]="currentComment" (theCommentChanged)="onSubmit($event, undefined)"></app-comments-form>
+</div>
+<article *ngFor="let cItem of theList; index as idx" [class]="commentStyle">
+
+    <div *ngIf="!formUpdate[idx]" class="w-100 flex justify-between">
+        <div>
+            <span class="text-gray-500 text-xs text-left">User: </span>
+            <span class="text-xs text-gray-800">{{ cItem.item.user }}</span>
+        </div>
+        <div>
+            <span class="text-gray-400 text-xs">{{ cItem.item.date }}</span>
+        </div>
+    </div>
+    <div data-testid="content-field" *ngIf="!formUpdate[idx]" class="pt-2 mb-1 text-gray-500 border-y-2 text-left">
+        {{ cItem.item.content }}
+    </div>
+    <div class="flex flex-row-reverse">
+        <button *ngIf="!formUpdate[idx]" [disabled]="openForm" type="button" (click)="updateComment(cItem.item, idx)" class="updt-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+            </svg>
+         </button>
+    </div>
+
+    <app-comments-form *ngIf="formUpdate[idx]" [theComment]="currentComment" (theCommentChanged)="onSubmit($event, idx)"></app-comments-form>
+    <app-comments-list [theList]="cItem.list" [parentId]="cItem.item.id" [postId]="postId" [depth]="depth + 1 "></app-comments-list>
+</article>

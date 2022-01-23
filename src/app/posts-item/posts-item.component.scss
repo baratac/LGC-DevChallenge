@@ -1,0 +1,11 @@
+.rfrsh-btn {
+    @apply py-2 px-4 border-2 bg-emerald-200 rounded-xl;
+}
+
+.rfrsh-btn:hover {
+    @apply bg-emerald-400;
+}
+
+.rfrsh-btn:disabled {
+    @apply bg-gray-100;
+}

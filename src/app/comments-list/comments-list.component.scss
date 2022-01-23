@@ -1,0 +1,23 @@
+.add-btn {
+    @apply text-xs p-1 bg-amber-200 rounded-full border-2;
+}
+
+.add-btn:hover {
+    @apply bg-amber-400;
+}
+
+.add-btn:disabled {
+    @apply bg-gray-100;
+}
+
+.updt-btn {
+    @apply text-xs mr-4 p-1 mb-1 bg-emerald-200 border-2 rounded-full;
+}
+
+.updt-btn:hover {
+    @apply bg-emerald-400;
+}
+
+.updt-btn:disabled {
+    @apply bg-gray-100;
+}

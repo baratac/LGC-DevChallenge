@@ -1,0 +1,43 @@
+<div class="mt-4 p-3  bg-amber-50">
+    <section *ngIf="thePost; else redirecting">
+        <header class="flex justify-between">
+            <div class="my-2 ml-4">
+                <p class="text-gray-500 text-xs text-left">Title</p>
+                <span class="font-medium tracking-wide">{{ thePost.title }}</span>
+            </div>
+            <div class="my-2">
+                <p class="text-gray-500 text-xs text-left">Author</p>
+                <span class="tracking-tight font-light ">{{ thePost.author }}</span>
+            </div>
+            <div class="my-2 mr-4">
+                <p class="text-gray-500 text-xs text-left">Date</p>
+                <span class="tracking-tight font-light ">{{ thePost.publish_date }}</span>
+            </div>
+        </header>
+
+        <header class="ml-4 text-sm pb-2  text-gray-500 font-medium text-left">
+            <span class="text-gray-900 font-normal tracking-wide">Description:</span> {{ thePost!.description }}
+        </header>
+        <article [innerHtml]="thePost!.content" class="p-4 mx-4 leading-relaxed  text-gray-500  border-t-2 border-slate-300 text-left">
+        </article>
+        <app-comments-list [theList]="commentList" [postId]="thePost.id" [depth]="1"></app-comments-list>
+        <div class="flex justify-around">
+            <button (click)="gotoList()" class="py-2 px-4 bg-amber-200 border-2 rounded-xl hover:bg-amber-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+            </button>
+            <button (click)="refreshComments()" [disabled]="!commentList!.length" class="rfrsh-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+            </button>
+        </div>
+    </section>
+    <ng-template #redirecting>
+        <section class="flex flex-col justify-around h-5/6 w-100">
+            <p data-testid="unknown-post-address" class="text-2xl text-zinc-600 font-semibold tracking-wider text-center">Nothing To Show Here...</p>
+            <a routerLink="/" class="block mt-2 text-xl text-center text-indigo-600 underline  underline-offset-2  mr-4">Back to List</a>
+        </section>
+    </ng-template>
+</div>

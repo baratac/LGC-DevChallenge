@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
@@ -25,11 +26,19 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app.title).toEqual('LGC-DevChallenge');
   });
-
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const { debugElement  } = fixture;;
+    const titleElement = debugElement.query(By.css('[data-testid="app-title"]')).nativeElement as HTMLElement;
+    expect(titleElement.innerText).toContain('LGC Challenge Trial');
+  });
+/*
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('LGC-DevChallenge app is running!');
   });
+*/
 });
