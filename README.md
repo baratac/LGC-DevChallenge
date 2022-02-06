@@ -51,6 +51,6 @@ This component corresponds to the landing page, reaches out to data interface se
 
 Inner Layer (posts-item.component, comments-list.component, comments-form.component)
 
-Using this three components the app shows all details and contents of the post as well as the comments structure, to show all the comments the comments-list component will call itself in a recursive fashion, each comment level will have a add button to trigger comments-form for a new comment, and each comment has a button to update its contents and username  using the same form.component. To avoid having several forms open, a simple util-interface service provides a subject that informs the state of the form window and with it synchronizes the button accessibility.
+Using these three components the app shows all details and contents of the post as well as the comments structure, to show all the comments the comments-list component will call itself in a recursive fashion, each comment level will have a add button to trigger comments-form for a new comment, and each comment has a button to update its contents and username  using the same form.component. To avoid having several forms open, a simple util-interface service provides a subject that informs the state of the form window and with it synchronizes the button accessibility.
 
 Carlos Barata, Apple Beach, January 2022
